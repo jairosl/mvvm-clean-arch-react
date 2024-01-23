@@ -8,7 +8,7 @@ interface AddProductUseCaseProps {
 }
 
 export interface AddProductUseCaseType {
-  execute(id: number): Promise<CartEntities>;
+  execute(id: string): Promise<CartEntities>;
 }
 
 export default function AddProductUseCase({
@@ -16,7 +16,7 @@ export default function AddProductUseCase({
   CartGateways,
 }: AddProductUseCaseProps): AddProductUseCaseType {
   return {
-    async execute(id: number) {
+    async execute(id: string) {
       const isProductAlreadyExist = await ProductGateways.find(id);
 
       if (!isProductAlreadyExist) {

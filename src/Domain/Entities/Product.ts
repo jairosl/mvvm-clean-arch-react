@@ -1,5 +1,5 @@
 export default interface ProductEntity {
-  id: number;
+  id: string;
   name: string;
-  value: string;
+  value: number;
 }

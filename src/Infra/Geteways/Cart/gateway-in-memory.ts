@@ -35,8 +35,7 @@ export default function GatewaysCartMemory(): CartGateways {
       }
 
       cart.price = cart.products.reduce(
-        (price, product) =>
-          (price += product.count * Number(product.product.value)),
+        (price, product) => (price += product.count * product.product.value),
         0,
       );
 
