@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    --primary: 254, 252, 252;
-    --secondary: 86, 90, 187;
-    --tertiary: 77, 225, 193;
-    --text-black: 30, 30, 30;
-    --border-gray: 217, 217, 217;
-    --border-primary: 255, 255, 255;
-    --border-secondary: 98, 104, 198;
-    --line-primary: 208, 207, 207;
-    --line-secondary: 95, 101, 195;
-    --label: 57, 57, 57;
-    --placeholder-primary: 196, 196, 196;
+    --primary: 254 252 252;
+    --secondary: 86 90 187;
+    --tertiary: 77 225 193;
+    --text-black: 30 30 30;
+    --border-gray: 217 217 217;
+    --border-primary: 255 255 255;
+    --border-secondary: 98 104 198;
+    --line-primary: 208 207 207;
+    --line-secondary: 95 101 195;
+    --label: 57 57 57;
+    --placeholder-primary: 196 196 196;
   }
 }
