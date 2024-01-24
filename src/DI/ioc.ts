@@ -12,6 +12,9 @@ import CreateProductUseCase, {
 import RemoveProductUseCase, {
   RemoveProductUseCaseType,
 } from '../Domain/UseCases/Cart/RemoveProduct.usecase';
+import DeleteProductUseCase, {
+  DeleteProductUseCaseType,
+} from '../Domain/UseCases/Cart/DeleteProduct.usecase';
 
 const container = createContainer<{
   ProductGateways: ProductGateway;
@@ -19,6 +22,7 @@ const container = createContainer<{
   AddProductsInCartUseCase: AddProductUseCaseType;
   CreateProductUseCase: CreateProductUseCaseType;
   RemoveProductUseCase: RemoveProductUseCaseType;
+  DeleteProductUseCase: DeleteProductUseCaseType;
 }>();
 
 container.register({
@@ -35,6 +39,7 @@ container.register({
   // Cart
   AddProductsInCartUseCase: asFunction(AddProductUseCase),
   RemoveProductUseCase: asFunction(RemoveProductUseCase),
+  DeleteProductUseCase: asFunction(DeleteProductUseCase),
 
   // Product
   CreateProductUseCase: asFunction(CreateProductUseCase),
