@@ -1,3 +1,6 @@
+import GetCartUseCase, {
+  GetCartUseCaseType,
+} from './../Domain/UseCases/Cart/GetCart.usecase';
 import { asFunction, createContainer } from 'awilix';
 import GatewaysProductMemory from '../Infra/Geteways/Products/gateway-in-memory';
 import GatewaysCartMemory from '../Infra/Geteways/Cart/gateway-in-memory';
@@ -23,6 +26,7 @@ const container = createContainer<{
   CreateProductUseCase: CreateProductUseCaseType;
   RemoveProductUseCase: RemoveProductUseCaseType;
   DeleteProductUseCase: DeleteProductUseCaseType;
+  GetCartUseCase: GetCartUseCaseType;
 }>();
 
 container.register({
@@ -40,6 +44,7 @@ container.register({
   AddProductsInCartUseCase: asFunction(AddProductUseCase),
   RemoveProductUseCase: asFunction(RemoveProductUseCase),
   DeleteProductUseCase: asFunction(DeleteProductUseCase),
+  GetCartUseCase: asFunction(GetCartUseCase),
 
   // Product
   CreateProductUseCase: asFunction(CreateProductUseCase),
