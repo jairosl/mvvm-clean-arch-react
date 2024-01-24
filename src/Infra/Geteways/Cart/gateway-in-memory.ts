@@ -85,5 +85,28 @@ export default function GatewaysCartMemory(): CartGateways {
     async get() {
       return cart;
     },
+
+    async deleteProduct(productId: string) {
+      const product = cart.products.find(
+        (current) => current.product.id === productId,
+      );
+
+      if (!product) return;
+
+      const newProducts = cart.products.filter(
+        (current) => current.product.id !== productId,
+      );
+
+      cart.products = newProducts;
+      cart.price = cart.products.reduce(
+        (price, product) => (price += product.count * product.product.value),
+        0,
+      );
+
+      cart.totalProduct = cart.products.reduce(
+        (total, products) => (total += products.count),
+        0,
+      );
+    },
   };
 }
