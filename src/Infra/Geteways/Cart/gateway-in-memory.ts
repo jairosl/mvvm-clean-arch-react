@@ -46,5 +46,44 @@ export default function GatewaysCartMemory(): CartGateways {
 
       return cart;
     },
+    async removeProduct(productId: string) {
+      const product = cart.products.find(
+        (current) => current.product.id === productId,
+      );
+
+      if (!product) return;
+
+      if (product.count === 1) {
+        const cartDeleteProduct = cart.products.filter(
+          (current) => current.product.id !== productId,
+        );
+
+        cart.products = cartDeleteProduct;
+      } else {
+        const removeProductCart = cart.products.map((current) => {
+          if (current.product.id === productId) {
+            return {
+              ...current,
+              count: current.count - 1,
+            };
+          }
+          return current;
+        });
+        cart.products = removeProductCart;
+      }
+
+      cart.price = cart.products.reduce(
+        (price, product) => (price += product.count * product.product.value),
+        0,
+      );
+
+      cart.totalProduct = cart.products.reduce(
+        (total, products) => (total += products.count),
+        0,
+      );
+    },
+    async get() {
+      return cart;
+    },
   };
 }
