@@ -9,20 +9,34 @@ import CartGateway from '../Domain/Gateways/Cart';
 import CreateProductUseCase, {
   CreateProductUseCaseType,
 } from '../Domain/UseCases/Product/CreateProduct.usecase';
+import RemoveProductUseCase, {
+  RemoveProductUseCaseType,
+} from '../Domain/UseCases/Cart/RemoveProduct.usecase';
 
 const container = createContainer<{
   ProductGateways: ProductGateway;
   CartGateways: CartGateway;
   AddProductsInCartUseCase: AddProductUseCaseType;
-  CreateProductUseCase: CreateProductUseCaseType; //
+  CreateProductUseCase: CreateProductUseCaseType;
+  RemoveProductUseCase: RemoveProductUseCaseType;
 }>();
 
 container.register({
-  // gateways
-  ProductGateways: asFunction(GatewaysProductMemory),
+  // Gateways
+
+  // Cart
   CartGateways: asFunction(GatewaysCartMemory),
-  // usecases
+
+  // Product
+  ProductGateways: asFunction(GatewaysProductMemory),
+
+  // UseCases
+
+  // Cart
   AddProductsInCartUseCase: asFunction(AddProductUseCase),
+  RemoveProductUseCase: asFunction(RemoveProductUseCase),
+
+  // Product
   CreateProductUseCase: asFunction(CreateProductUseCase),
 });
 
