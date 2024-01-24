@@ -25,7 +25,7 @@ describe('RemoveProductUseCase', () => {
       CartGateways: mockGateway.CartGateway,
     });
   });
-  it('should return error when product not found', () => {
+  it('should return error when remove product and product not found ', () => {
     const { usecase } = sut;
 
     expect(async () => await usecase.execute('1')).rejects.toThrowError(
