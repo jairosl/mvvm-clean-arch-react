@@ -28,6 +28,7 @@ export default {
         nunito: ['Nunito', 'sans-serif'],
         popins: ['Poppins', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
+        opensans: ['Open Sans', 'sans-serif'],
       },
     },
   },
