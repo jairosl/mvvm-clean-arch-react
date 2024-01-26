@@ -24,6 +24,11 @@ export default {
       placeholderColor: {
         primary: 'rgb(var(--placeholder-primary) / <alpha-value>)',
       },
+      fontFamily: {
+        nunito: ['Nunito', 'sans-serif'],
+        popins: ['Poppins', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
+      },
     },
   },
   plugins: [],
