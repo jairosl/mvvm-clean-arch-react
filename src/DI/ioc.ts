@@ -1,8 +1,8 @@
+import { asFunction, createContainer } from 'awilix';
 import GetCartUseCase, {
   GetCartUseCaseType,
 } from './../Domain/UseCases/Cart/GetCart.usecase';
-import { asFunction, createContainer } from 'awilix';
-import GatewaysProductMemory from '../Infra/Geteways/Products/gateway-in-memory';
+// import GatewaysProductMemory from '../Infra/Geteways/Products/gateway-in-memory';
 import GatewaysCartMemory from '../Infra/Geteways/Cart/gateway-in-memory';
 import AddProductUseCase, {
   AddProductUseCaseType,
@@ -18,6 +18,10 @@ import RemoveProductUseCase, {
 import DeleteProductUseCase, {
   DeleteProductUseCaseType,
 } from '../Domain/UseCases/Cart/DeleteProduct.usecase';
+import HomeViewModel, {
+  HomeViewModelType,
+} from '../Presentation/Pages/Home/viewModel';
+import GatewaysProductApi from '../Infra/Geteways/Products/gateway-api';
 
 const container = createContainer<{
   ProductGateways: ProductGateway;
@@ -27,6 +31,7 @@ const container = createContainer<{
   RemoveProductUseCase: RemoveProductUseCaseType;
   DeleteProductUseCase: DeleteProductUseCaseType;
   GetCartUseCase: GetCartUseCaseType;
+  HomeViewModel: HomeViewModelType;
 }>();
 
 container.register({
@@ -36,8 +41,8 @@ container.register({
   CartGateways: asFunction(GatewaysCartMemory),
 
   // Product
-  ProductGateways: asFunction(GatewaysProductMemory),
-
+  // ProductGateways: asFunction(GatewaysProductMemory), GatewaysProductApi
+  ProductGateways: asFunction(GatewaysProductApi),
   // UseCases
 
   // Cart
@@ -48,6 +53,9 @@ container.register({
 
   // Product
   CreateProductUseCase: asFunction(CreateProductUseCase),
+
+  // View Model
+  HomeViewModel: asFunction(HomeViewModel),
 });
 
 export default container;
