@@ -1,0 +1,14 @@
+{
+  "products": [
+    {
+      "id": "d0f93296-f714-401f-8a8d-08e52320b56e",
+      "name": "Italy Pizza",
+      "value": 42
+    },
+    {
+      "id": "20ed52d3-3153-48bf-a340-85d9bca3e943",
+      "name": "Combo Plate",
+      "value": 48
+    }
+  ]
+}
