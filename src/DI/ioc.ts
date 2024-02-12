@@ -3,7 +3,7 @@ import GetCartUseCase, {
   GetCartUseCaseType,
 } from './../Domain/UseCases/Cart/GetCart.usecase';
 // import GatewaysProductMemory from '../Infra/Geteways/Products/gateway-in-memory';
-import GatewaysCartMemory from '../Infra/Geteways/Cart/gateway-in-memory';
+// import GatewaysCartMemory from '../Infra/Geteways/Cart/gateway-in-memory';
 import AddProductUseCase, {
   AddProductUseCaseType,
 } from '../Domain/UseCases/Cart/AddProduct.usecase';
@@ -22,6 +22,7 @@ import HomeViewModel, {
   HomeViewModelType,
 } from '../Presentation/Pages/Home/viewModel';
 import GatewaysProductApi from '../Infra/Geteways/Products/gateway-api';
+import GatewaysCartApi from '../Infra/Geteways/Cart/gateway-api';
 
 const container = createContainer<{
   ProductGateways: ProductGateway;
@@ -38,7 +39,7 @@ container.register({
   // Gateways
 
   // Cart
-  CartGateways: asFunction(GatewaysCartMemory),
+  CartGateways: asFunction(GatewaysCartApi),
 
   // Product
   // ProductGateways: asFunction(GatewaysProductMemory), GatewaysProductApi
